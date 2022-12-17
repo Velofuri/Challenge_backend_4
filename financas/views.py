@@ -22,6 +22,7 @@ class DespesaViewSet(viewsets.ModelViewSet):
     search_fields = ['data', 'descricao']
     
 class ReceitasPorMes(generics.ListAPIView):
+    """Exibindo Receitas por determinado mês"""
     def get_queryset(self):
         ano = self.kwargs['ano']
         mes = self.kwargs['mes']
@@ -30,6 +31,7 @@ class ReceitasPorMes(generics.ListAPIView):
     serializer_class = ReceitaSerializer
 
 class DespesasPorMes(generics.ListAPIView):
+    """Exibindo Despesas por determinado mês"""
     def get_queryset(self):
         ano = self.kwargs['ano']
         mes = self.kwargs['mes']
@@ -38,6 +40,7 @@ class DespesasPorMes(generics.ListAPIView):
     serializer_class = DespesaSerializer
 
 class ResumoPorMes(APIView):
+    """Resumo Financeiro por mês"""
     def get(self, request, ano, mes):
         ano = self.kwargs['ano']
         mes = self.kwargs['mes']
